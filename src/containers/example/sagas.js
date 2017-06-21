@@ -20,10 +20,8 @@ export function* fetchMessageSaga(action) {
 
   try {
     const res = yield call(request, url, options);
-    console.log('test', res);
     yield put(messageReceived(res.json.message));
   } catch (err) {
-    console.log('test2', err);
     yield put(messageReceived('ERROR WHILE FETCHING MESSAGE'));
   }
 }
